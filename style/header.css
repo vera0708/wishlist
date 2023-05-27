@@ -8,8 +8,26 @@
     align-items: center;
 }
 
-.header__logo {}
 
-.header__nav {}
 
-.header__burger {}
+@media (max-width: 1700px) {
+    .header {
+        padding: 48px 0;
+    }
+
+    .header__logo {
+        width: 54px;
+        height: 54px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header {
+        padding: 38px 0;
+    }
+
+    .header__logo {
+        width: 48px;
+        height: 48px;
+    }
+}

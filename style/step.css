@@ -21,3 +21,7 @@
     line-height: 108px;
     margin-right: 16px;
 }
+
+@media (max-width: 1700px) {}
+
+@media (max-width: 1200px) {}

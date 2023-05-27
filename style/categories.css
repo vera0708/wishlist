@@ -8,3 +8,16 @@
     line-height: 59px;
     margin-bottom: 38px;
 }
+
+
+@media (max-width: 1200px) {
+    .categories {
+        margin-bottom: 84px;
+    }
+
+    .categories__title {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 780px) {}

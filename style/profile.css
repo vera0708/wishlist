@@ -34,3 +34,25 @@
     font-size: 32px;
     gap: 7px;
 }
+
+@media (max-width: 1200px) {
+    .profile__avatar {
+        max-width: 466px;
+        margin-right: 34px;
+    }
+
+    .profile__content {
+        padding-bottom: 145px;
+    }
+
+    .profile__birthday {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .profile__edit {
+        gap: 4px;
+    }
+}
+
+@media (max-width: 780px) {}

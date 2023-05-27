@@ -10,3 +10,11 @@
 .nav__btn:last-child {
     margin-right: 0;
 }
+
+@media (max-width: 1200px) {
+    .nav__btn {
+        margin-right: 18px;
+    }
+}
+
+@media (max-width: 620px) {}

@@ -160,6 +160,7 @@
     width: 285px;
     height: 285px;
     margin-bottom: 152px;
+    position: relative;
 }
 
 .edit__label-photo {
@@ -181,3 +182,7 @@
     top: 8px;
     right: 8px;
 }
+
+@media (max-width: 1700px) {}
+
+@media (max-width: 1200px) {}
