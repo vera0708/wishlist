@@ -10,7 +10,6 @@
     align-items: center;
     flex-basis: 243px;
     font-size: 18px;
-    line-height: 21px;
 }
 
 .steps__item::before {
@@ -18,10 +17,37 @@
     counter-increment: steps-counter;
     color: rgba(255, 255, 255, 0.6);
     font-size: 92px;
-    line-height: 108px;
     margin-right: 16px;
 }
 
-@media (max-width: 1700px) {}
+@media (max-width: 992px) {
+    .steps {
+        gap: 25px;
+    }
 
-@media (max-width: 1200px) {}
+    .steps__item {
+        flex-basis: 204px;
+        font-size: 16px;
+    }
+
+    .steps__item::before {
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 740px) {
+    .steps {
+        flex-direction: column;
+        max-width: 220px;
+    }
+
+    .steps__item {
+        flex-basis: auto;
+        text-align: center;
+    }
+
+    .steps__item::before {
+        font-size: 40px;
+        margin-right: 16px;
+    }
+}
