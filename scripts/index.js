@@ -1,7 +1,22 @@
 import { renderNavigation } from './renderNavigation.js';
 import { createHero } from './createHero.js';
 
+
+export const router = Router();
+
 const app = document.querySelector('.app');
+
+const handleEditPageRoute = (id) => {
+
+};
+
+const handleEditProfileRoute = (login) => {
+
+};
+
+const handleUserRoute = (login) => {
+
+};
 
 
 const handleHomePage = () => {
@@ -14,7 +29,21 @@ const handleHomePage = () => {
 }
 
 const init = () => {
-    handleHomePage();
+    let isMainPage = true;
+
+    router.on('/', handleHomePage);
+    router.on('/editwish/newwish', handleEditPageRoute);
+    router.on('/editwish/:id', handleEditPageRoute);
+    router.on('/editprofile/:login', handleEditProfileRoute);
+    router.on('/user/:login', handleUserRoute);
+
+    router.init();
+
+    if (isMainPage) {
+        isMainPage = false;
+        router.setRoute('/');
+    }
+    // handleHomePage();
 };
 
 init();
