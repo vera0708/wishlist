@@ -75,8 +75,9 @@
     }
 
     .wishlist__description {
-        margin-bottom: 42px;
         font-size: 16px;
+        max-width: 400px;
+        margin: 0 auto 42px;
         text-align: center;
     }
 
