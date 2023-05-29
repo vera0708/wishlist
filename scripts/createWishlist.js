@@ -5,6 +5,6 @@ export const createWishlist = async pageLogin => {
     if (!pageLogin) {
         pageLogin = login;
     }
-    const user = await getUser(pageLogin);
-    console.log(`user: ${user}`);
+    // const user = await getUser(pageLogin);
+    // console.log(`user: ${user}`);
 }

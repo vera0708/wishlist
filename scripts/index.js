@@ -1,4 +1,5 @@
 import { renderNavigation } from './renderNavigation.js';
+import { createWishlist } from "./createWishlist.js";
 import { createHero } from './createHero.js';
 import { JWT_TOKEN_KEY } from './const.js';
 import { getLogin } from './getLogin.js';
