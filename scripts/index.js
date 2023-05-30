@@ -2,7 +2,7 @@ import { renderNavigation } from './renderNavigation.js';
 import { createWishlist } from "./createWishlist.js";
 import { createHero } from './createHero.js';
 import { JWT_TOKEN_KEY } from './const.js';
-import { getLogin } from './getLogin.js';
+import { getLogin } from './serviceAPI.js';
 
 
 export const router = Router();
@@ -45,6 +45,7 @@ const init = () => {
 
     if (isMainPage) {
         isMainPage = false;
+
         if (auth.login) {
             router.setRoute(`user/${auth.login}`);
         } else {
