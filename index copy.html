@@ -134,10 +134,11 @@
                 </ul>
             </div>
         </section>
+
         <section class="edit edit_profile">
             <div class="container">
-                <form class="form__edit">
-                    <fieldset class="edit__avater">
+                <form class="edit__form">
+                    <fieldset class="edit__avatar">
                         <img src="img/avatar.png" alt="Аватар пользователя" class="edit__avatar-img">
                         <div class="edit__avatar-load">
                             <label for="avatar-load" class="edit__label-avatar">
@@ -149,8 +150,8 @@
                                 </svg>
                                 Обновить фотографию
                             </label>
-                            <input class="edit__input-file edit__input-file_avatar" type="file"
-                                accept="image/jpg, image/png">
+                            <input class="edit__input-file edit__input-file_avatar" type="file" id="avatar-load"
+                                accept="image/jpeg, image/png">
                             <button class="edit__avatar-delete">
                                 <svg class="edit__icon-avatar" width="38" height="38" viewBox="0 0 38 38" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -176,24 +177,26 @@
 
                     <fieldset class="edit__birthday">
                         <legend class="edit__label-text">Дата рождения</legend>
-                        <label class="edit__label edit__label_select">
-                            <select class="edit__select" name="day" type="text">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </select>
-                        </label>
-                        <label class="edit__label edit__label_select">
-                            <select class="edit__select" name="month" type="text                      ">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </select>
-                        </label>
-                        <label class="edit__label edit__label_select">
-                            <select class="edit__select" name="year" type="text">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                            </select>
-                        </label>
+                        <div class="edit__birthday-wrapper">
+                            <label class="edit__label edit__label_select">
+                                <select class="edit__select" name="day" type="text">
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                            </label>
+                            <label class="edit__label edit__label_select">
+                                <select class="edit__select" name="month" type="text                      ">
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                            </label>
+                            <label class="edit__label edit__label_select">
+                                <select class="edit__select" name="year" type="text">
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                            </label>
+                        </div>
                     </fieldset>
 
                     <fieldset class="edit__description">
@@ -241,7 +244,7 @@
                         <label for="" class="edit__label-photo">
                             <img src="img/no-photo.jpg" alt="нет фотографии" class="edit__wish-image">
                             <input type="file" class="edit__input-file edit__input-file_wish"
-                                accept="image/jpg, image/png">
+                                accept="image/jpeg, image/png">
                         </label>
                         <button class="edit__wish-delete">
                             <svg width="50" height="50" viewBox="0 0 50 50" fill="none"

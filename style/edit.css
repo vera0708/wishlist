@@ -2,7 +2,7 @@
     padding-bottom: 174px;
 }
 
-.edit__avater {
+.edit__avatar {
     display: flex;
     align-items: center;
     margin-bottom: 113px;
@@ -72,6 +72,9 @@
 
 .edit__birthday {
     margin-bottom: 44px;
+}
+
+.edit__birthday-wrapper {
     display: flex;
     gap: 12px;
 }
@@ -183,7 +186,7 @@
 }
 
 @media (max-width: 1200px) {
-    .edit__avater {
+    .edit__avatar {
         margin-bottom: 56px;
     }
 
@@ -208,7 +211,6 @@
 
     .edit__birthday {
         margin-bottom: 40px;
-        gap: 12px;
     }
 
     .edit__description {
@@ -225,7 +227,7 @@
         padding-bottom: 80px;
     }
 
-    .edit__avater {
+    .edit__avatar {
         margin-bottom: 64px;
     }
 
@@ -290,7 +292,7 @@
         padding-bottom: 46px;
     }
 
-    .edit__avater {
+    .edit__avatar {
         flex-direction: column;
         align-items: center;
     }
