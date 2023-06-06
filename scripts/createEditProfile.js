@@ -1,15 +1,15 @@
 import { API_URL } from "./const.js";
-import { handleImageFileSelection } from "./helper.js";
+import { createElement, handleImageFileSelection } from "./helper.js";
 import { getUser } from "./serviceAPI.js"
 
 export const createEditProfile = async (login) => {
     const user = await getUser(login);
 
-    const sectionEditProfile = createElement('section', {
+    const sectionEditProfile = createElementent('section', {
         className: 'edit edit_profile',
     });
 
-    const container = createElement('div', {
+    const container = createElementment('div', {
         className: 'container',
     });
 

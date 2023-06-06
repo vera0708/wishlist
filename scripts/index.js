@@ -6,6 +6,7 @@ import { getLogin } from './serviceAPI.js';
 import { createEditProfile } from './createEditProfile.js';
 
 
+
 export const router = Router();
 const token = localStorage.getItem(JWT_TOKEN_KEY);
 export const auth = token ? await getLogin(token) : {};
