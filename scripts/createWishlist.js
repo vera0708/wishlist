@@ -10,8 +10,7 @@ export const createWishlist = async pageLogin => {
     }
 
     const user = await getUser(pageLogin);
-    /*     {
-                 "id": "b1db2101-b64f-4447-9aec-42064ee4de20",
+    /*     {     "id": "b1db2101-b64f-4447-9aec-42064ee4de20",
                  "login": "Kuzy",
                  "wish": { 
                  'гаджеты': [{телефон},{наушники}],
@@ -34,7 +33,7 @@ export const createWishlist = async pageLogin => {
 
     const avatar = createElement('img', {
         className: 'profile__avatar',
-        src: 'img/avatar.png',
+        src: `${API_URL}/${user.avatar}`,
         alt: 'Фото автора списка',
     });
 
@@ -55,14 +54,18 @@ export const createWishlist = async pageLogin => {
 
     if (user.birthdate) {
         const birthday = new Date(user.birthdate);
-        const day = birthday.getDate();
-        const month = birthday.toLocaleString('default', { month: 'long' });
+        // const day = birthday.getDate();
+        // const month = birthday.toLocaleString('default', { month: 'long' });
+        const dayAndMonth = birthday.toLocaleString('default', {
+            month: 'long',
+            day: 'numeric',
+        });
         const ageDifMs = Date.now() - birthday.getTime();
         const ageDate = new Date(ageDifMs);
         const age = Math.abs(ageDate.getUTCFullYear() - 1970);
         const plural = pluralizeYears(age);
 
-        const ageMessage = `${day} ${month} исполнится ${age} ${plural}`
+        const ageMessage = `${dayAndMonth} исполнится ${age} ${plural}`
 
         const birthdayElem = createElement('p', {
             className: 'profile__birthday',
@@ -104,7 +107,7 @@ export const createWishlist = async pageLogin => {
 
     if (!(Object.keys(user.wish).length)) {
         const nowish = createElement('p', {
-            className: 'wishlist__n-wish',
+            className: 'wishlist__no-wish',
             textContent: 'Список желаний пуст',
         });
         container.append(nowish);

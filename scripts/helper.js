@@ -4,9 +4,7 @@ export const createElement = (tagName, attribute) => {
     return elem
     // так сложнее:  for (const key in object) {
     //     if (Object.hasOwnProperty.call(object, key)) {
-    //         elem.setAttribute(key, attribute[key]);
-    //     } }
-
+    //         elem.setAttribute(key, attribute[key]);    } }
 };
 
 export const pluralizeYears = (age) => {
@@ -73,7 +71,7 @@ export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) 
     }
 
     if (birthdate) {
-        const [day, month, year] = birthdate.split('/');
+        const [month, day, year] = birthdate.split('/');
         selectDay.value = day;
         selectMonth.value = month;
         selectYear.value = year;

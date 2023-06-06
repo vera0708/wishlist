@@ -1,6 +1,7 @@
 import { API_URL } from "./const.js";
 import { createElement, createSelectDate, handleImageFileSelection } from "./helper.js";
-import { getUser } from "./serviceAPI.js"
+import { router } from "./index.js";
+import { getUser, sendDataUser } from "./serviceAPI.js"
 
 export const createEditProfile = async (login) => {
     const user = await getUser(login);
@@ -19,8 +20,18 @@ export const createEditProfile = async (login) => {
         className: 'edit__form',
     });
 
-    formProfile.addEventListener('submit', (e) => {
-        //  to do
+    formProfile.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        // console.log('data: ', data);
+        if (data.day && data.month && data.year) {
+            data.birthdate = `${data.month}/${data.day}/${data.year}`;
+        }
+
+
+        await sendDataUser(user.id, data);
+        router.setRoute(`user/${login}`);
     });
 
     const editAvatar = createElement('fieldset', {
@@ -28,7 +39,7 @@ export const createEditProfile = async (login) => {
     });
 
     const editAvatarImage = createElement('img', {
-        className: 'edit__avatar',
+        className: 'edit__avatar-img',
         src: `${API_URL}/${user.avatar}`,
         alt: `Аватар ${user.login}`,
     });
@@ -186,6 +197,7 @@ export const createEditProfile = async (login) => {
         className: 'edit__description-input',
         name: 'description',
         id: 'description',
+        value: user.description,
     });
 
     editDescription.append(editDescriptionLabel, editDescriptionTextArea);

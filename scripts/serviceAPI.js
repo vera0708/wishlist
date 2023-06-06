@@ -26,11 +26,34 @@ export const getUser = async (login) => {
     if (token) {
         headers.Authorization = `Bearer ${token}`
     }
-
     try {
         const response = await fetch(`${API_URL}/user/${login}`, {
             method: 'GET',
             headers,
+        });
+
+        const data = await response.json();
+        return data;
+
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+
+export const sendDataUser = async (id, userData) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+    try {
+        const response = await fetch(`${API_URL}/user/${id}`, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify(userData),
         });
 
         const data = await response.json();
@@ -42,3 +65,4 @@ export const getUser = async (login) => {
         console.error(err);
     }
 };
+
