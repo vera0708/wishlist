@@ -27,7 +27,7 @@ export const pluralizeYears = (age) => {
 };
 
 export const handleImageFileSelection = (input, image) => {
-    handleFileInputChange = (eve) => {
+    const handleFileInputChange = (eve) => {
         if (eve.target.files.length > 0) {
             const file = eve.target.files[0];
             const reader = new FileReader();

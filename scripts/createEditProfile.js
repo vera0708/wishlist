@@ -1,5 +1,5 @@
 import { API_URL } from "./const.js";
-import { createElement, handleImageFileSelection } from "./helper.js";
+import { createElement, createSelectDate, handleImageFileSelection } from "./helper.js";
 import { getUser } from "./serviceAPI.js"
 
 export const createEditProfile = async (login) => {
