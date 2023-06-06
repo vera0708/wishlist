@@ -30,7 +30,6 @@ const handleUserRoute = async (login) => {
     app.append(await createWishlist(login));
 };
 
-
 const handleHomePage = () => {
     app.textContent = '';
     renderNavigation();

@@ -27,8 +27,18 @@ export const pluralizeYears = (age) => {
 };
 
 export const handleImageFileSelection = (input, image) => {
-    //  to do
-}
+    handleFileInputChange = (eve) => {
+        if (eve.target.files.length > 0) {
+            const file = eve.target.files[0];
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                image.src = reader.result;
+            });
+            reader.readAsDataURL(file);
+        }
+    };
+    input.addEventListener('change', handleFileInputChange);
+};
 
 export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) => {
     for (let day = 0; day <= 31; day++) {

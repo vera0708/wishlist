@@ -5,11 +5,11 @@ import { getUser } from "./serviceAPI.js"
 export const createEditProfile = async (login) => {
     const user = await getUser(login);
 
-    const sectionEditProfile = createElementent('section', {
+    const sectionEditProfile = createElement('section', {
         className: 'edit edit_profile',
     });
 
-    const container = createElementment('div', {
+    const container = createElement('div', {
         className: 'container',
     });
 
@@ -118,7 +118,7 @@ export const createEditProfile = async (login) => {
     });
 
     const editBirthdayLegend = createElement('legend', {
-        className: 'edit__label-text',
+        className: 'edit__label edit__label-text',
         textContent: 'Дата рождения',
     });
 
