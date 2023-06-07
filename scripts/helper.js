@@ -24,18 +24,21 @@ export const pluralizeYears = (age) => {
     }
 };
 
-export const handleImageFileSelection = (input, image) => {
+export const handleImageFileSelection = (inputFile, image, inputHidden) => {
     const handleFileInputChange = (eve) => {
         if (eve.target.files.length > 0) {
             const file = eve.target.files[0];
             const reader = new FileReader();
             reader.addEventListener('load', () => {
                 image.src = reader.result;
+                if (inputHidden) {
+                    inputHidden.value = reader.result;
+                }
             });
             reader.readAsDataURL(file);
         }
     };
-    input.addEventListener('change', handleFileInputChange);
+    inputFile.addEventListener('change', handleFileInputChange);
 };
 
 export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) => {

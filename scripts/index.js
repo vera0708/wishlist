@@ -17,6 +17,7 @@ const app = document.querySelector('.app');
 
 const handleEditPageRoute = async (id) => {
     isMainPage = false;
+    app.textContent = '';
     const { sectionEditWish, formWish } = await createEditWish(id);
     renderNavigation('profile', formWish);
     app.append(sectionEditWish);

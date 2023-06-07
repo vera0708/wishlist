@@ -9,7 +9,7 @@
 }
 
 .edit__avatar-img {
-    max-width: 437px;
+    width: 437px;
     height: 437px;
     border-radius: 50%;
     margin-right: 106px;
@@ -50,7 +50,7 @@
 
 .edit__label {
     font-size: 50px;
-    max-width: 686px;
+    max-width: 700px;
 }
 
 .edit__label-text {
@@ -140,7 +140,7 @@
 
 .edit__wish {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(288px, 700px));
     gap: 44px 36px;
     margin-bottom: 44px;
 }
