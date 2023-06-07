@@ -93,7 +93,7 @@ export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) 
     });
 };
 
-export const createOptionCurrency = (select) => {
+export const createOptionCurrency = (select, currency) => {
     const currencies = ['RUB', 'USD', 'EUR', 'GBP'];
 
     for (let i = 0; i < currencies.length; i++) {
@@ -101,7 +101,7 @@ export const createOptionCurrency = (select) => {
             value: currencies[i],
             text: currencies[i],
         });
-
         select.append(option);
     }
+    select.value = currency ?? currencies[0];
 }

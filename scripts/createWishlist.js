@@ -1,24 +1,22 @@
 import { API_URL } from "./const.js";
 import { createElement, pluralizeYears } from "./helper.js";
-import { auth } from "./index.js";
+import { auth, router } from "./index.js";
 import { getUser } from "./serviceAPI.js";
 
 export const createWishlist = async pageLogin => {
     const login = auth.login;
+
     if (!pageLogin) {
         pageLogin = login;
     }
 
     const user = await getUser(pageLogin);
-    /*     {     "id": "b1db2101-b64f-4447-9aec-42064ee4de20",
-                 "login": "Kuzy",
-                 "wish": { 
-                 'гаджеты': [{телефон},{наушники}],
-                 'хобби': [{мяч},{велосипед}],
-                 },
-                 "avatar": "avatars/empty.png",
-                 "birthdate": ""
-     }  */
+
+    if (!user.login) {
+        router.setRoute('/');
+        return
+    }
+
     const section = createElement('section', {
         className: 'wishlist',
     })
@@ -142,18 +140,29 @@ export const createWishlist = async pageLogin => {
 
                 const itemImg = createElement('img', {
                     className: 'item__image',
-                    src: `${API_URL}/${item.img}`,
+                    src: `${API_URL}/${item.image}`,
                     alt: item.title,
                 });
 
                 const itemTitle = createElement('h4', {
                     className: 'item__title',
-                    textContent: item.title,
                 });
+
+                if (item.link) {
+                    const itemLink = createElement('a', {
+                        className: 'item__link',
+                        href: item.link,
+                        textContent: item.title,
+                        target: '_blank',
+                    })
+                    itemTitle.append(itemLink);
+                } else {
+                    itemTitle.textContent = item.title;
+                }
 
                 const itemPrice = createElement('p', {
                     className: 'item__price',
-                    textContent: `${item.price}/${item.currency}`,
+                    textContent: item.price && `${item.price}/${item.currency}`,
                 });
 
                 itemElem.append(itemImg, itemTitle, itemPrice);

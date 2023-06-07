@@ -197,7 +197,7 @@ export const createEditProfile = async (login) => {
         className: 'edit__description-input',
         name: 'description',
         id: 'description',
-        value: user.description,
+        value: user.description ?? 'Здесь будут описание',
     });
 
     editDescription.append(editDescriptionLabel, editDescriptionTextArea);

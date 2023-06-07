@@ -11,9 +11,10 @@ export const getLogin = async (token) => {
         });
 
         const data = await response.json();
-
+        console.log('dataLogin', data)
         return data;
     } catch (err) {
+
         console.error(err);
     }
 };
@@ -57,7 +58,7 @@ export const sendDataUser = async (id, userData) => {
         });
 
         const data = await response.json();
-        console.log(data);
+        console.log('userData', data);
 
         return data;
 
@@ -66,3 +67,96 @@ export const sendDataUser = async (id, userData) => {
     }
 };
 
+export const sendDataWish = async (wishData) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+    try {
+        const response = await fetch(`${API_URL}/addWish`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(wishData),
+        });
+
+        const data = await response.json();
+        console.log('addWish data:', data);
+
+        return data;
+
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const getWish = async (id) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+    try {
+        const response = await fetch(`${API_URL}/wish/${id}`, {
+            method: 'GET',
+            headers,
+        });
+
+        const data = await response.json();
+        return data;
+
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const updateDataWish = async (id, wishData) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+    try {
+        const response = await fetch(`${API_URL}/wish/${id}`, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify(wishData),
+        });
+
+        const data = await response.json();
+        console.log('addWish data:', data);
+
+        return data;
+
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const deletetWish = async (id) => {
+    const token = localStorage.getItem(JWT_TOKEN_KEY);
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+    if (token) {
+        headers.Authorization = `Bearer ${token}`
+    }
+    try {
+        const response = await fetch(`${API_URL}/wish/${id}`, {
+            method: 'DELETE',
+            headers,
+        });
+
+        const data = await response.json();
+        return data;
+
+    } catch (err) {
+        console.error(err);
+    }
+};
